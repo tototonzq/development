@@ -1,0 +1,22 @@
+<div class="container-chat">
+  <div class="container-chat-header">
+    <h1>Chat</h1>
+  </div>
+  <div class="container-chat-content">
+    <input [(ngModel)]="message" type="text" placeholder="wait...">
+    <button (click)="sendMessage()">SEND</button>
+  </div>
+  <ng-container *ngFor="let message of items">
+    <div class="container-chat-message">
+      <div *ngIf="!message.isMe" class="user">
+        <span>{{ message.isMe ? 'me' : 'other' }}</span>
+      </div>
+      <div class="message">
+        <span>{{ message.message }}</span>
+      </div>
+      <div *ngIf="message.isMe" class="user">
+        <span>{{ message.isMe ? 'me' : 'other' }}</span>
+      </div>
+    </div>
+  </ng-container>
+</div>

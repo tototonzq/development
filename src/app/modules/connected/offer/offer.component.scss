@@ -1,0 +1,42 @@
+.container-offer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  min-height: 100vh;
+  min-width: 100vw;
+  gap: 15px;
+
+  & .container-button {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+  }
+
+  & textarea {
+    width: 500px;
+    height: 300px;
+    resize: none;
+    padding: 10px;
+    font-size: 1.2rem;
+    font-family: monospace;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+  }
+
+  & button {
+    padding: 5px 20px;
+    min-width: 100px;
+    border-radius: 5px;
+    border: none;
+    color: #aaa;
+    cursor: pointer;
+
+    &:active {
+      background-color: #aaa;
+      color: #fff;
+    }
+  }
+}

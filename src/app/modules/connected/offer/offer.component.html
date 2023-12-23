@@ -1,0 +1,21 @@
+<div class="container-offer" *ngIf="!connected; else chatTemplate">
+  <span>{{ mode$ | async }}</span>
+  <ng-container *ngIf="(mode$ | async) === OfferMode.CREATE_OFFER; else Answer">
+    <textarea placeholder="wait..." [(ngModel)]="offerData"></textarea>
+    <div class="container-button">
+      <button (click)="createOffer()">Create</button>
+      <button (click)="onNext()">Next</button>
+    </div>
+  </ng-container>
+  <ng-template #Answer>
+    <textarea placeholder="wait..." [(ngModel)]="answerData"></textarea>
+    <div class="container-button">
+      <button (click)="confirmAnswer()">CLICK</button>
+    </div>
+  </ng-template>
+</div>
+
+<ng-template #chatTemplate>
+  <!-- <app-chat [channel]="channel" [(items)]="messageItems"></app-chat> -->
+  <app-lamp-child [channel]="channel" [(items)]="messageItems"></app-lamp-child>
+</ng-template>
