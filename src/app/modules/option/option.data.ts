@@ -9,4 +9,8 @@ export const ROOT_MENU: Menu[] = [
     router: 'Display',
     path: '/answer',
   },
+  {
+    router: 'Effects',
+    path: '/effects',
+  },
 ];
