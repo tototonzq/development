@@ -15,6 +15,8 @@
 
 <div [ngStyle]="{ display: display ? 'none' : 'block' }">
   <ng-container *ngFor="let message of items">
-    <img [src]="message" alt="no-image" />
+    <div class="inline-block">
+      <img class="w-60" [src]="message" alt="no-image" />
+    </div>
   </ng-container>
 </div>

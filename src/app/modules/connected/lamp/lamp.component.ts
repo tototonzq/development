@@ -23,6 +23,25 @@ export class LampComponent implements AfterViewInit, OnInit {
   public userAgent = new BehaviorSubject<string>('');
   public platform = new BehaviorSubject<string>('');
 
+  // data = [
+  //   {
+  //     message:
+  //       'https://www.central.co.th/e-shopping/wp-content/uploads/2020/12/CUTE-KITTY.jpg',
+  //   },
+  //   {
+  //     message:
+  //       'https://www.central.co.th/e-shopping/wp-content/uploads/2020/12/CUTE-KITTY.jpg',
+  //   },
+  //   {
+  //     message:
+  //       'https://www.central.co.th/e-shopping/wp-content/uploads/2020/12/CUTE-KITTY.jpg',
+  //   },
+  //   {
+  //     message:
+  //       'https://www.central.co.th/e-shopping/wp-content/uploads/2020/12/CUTE-KITTY.jpg',
+  //   },
+  // ];
+
   @Input('channel') channel?: RTCDataChannel;
   @Input('items') items: any[] = [];
   @Input('drawing') drawing: boolean = false;
@@ -34,6 +53,7 @@ export class LampComponent implements AfterViewInit, OnInit {
     this.items.push(image);
     this.itemsChange.emit(this.items);
     this.channel?.send(image);
+    this.clearCanvas();
   }
 
   ngOnInit(): void {
