@@ -22,6 +22,8 @@ export class LampComponentChild implements AfterViewInit, OnInit {
 
   @Input('channel') channel?: RTCDataChannel;
   @Input('items') items: any[] = [];
+  @Input('drawing') drawing: boolean = false;
+  @Input('display') display: boolean = false;
   @Output('itemsChange') itemsChange = new EventEmitter<any[]>();
 
   sendData() {

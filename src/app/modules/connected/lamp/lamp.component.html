@@ -1,18 +1,17 @@
 <div id="container" class="container-lamp">
-  <canvas id="drawingCanvas" #drawingCanvas></canvas>
-  <div class="container-button">
-    <!-- <div class="container-device">
-      <p>{{ userAgent | async }}</p>
-      <p>{{ platform | async }}</p>
-    </div> -->
-    <button (click)="sendData()">Send Data</button>
-    <button (click)="saveDrawing()">Save Drawing</button>
-    <button (click)="clearCanvas()">Clear Canvas</button>
-    <button (click)="undo()">Undo</button>
-    <button (click)="redo()">Redo</button>
+  <div [ngStyle]="{'display': drawing ? 'none' : 'block'}">
+    <canvas id="drawingCanvas" #drawingCanvas></canvas>
+    <div class="container-button">
+      <button (click)="sendData()">Send Data</button>
+      <button (click)="saveDrawing()">Save Drawing</button>
+      <button (click)="clearCanvas()">Clear Canvas</button>
+      <button (click)="undo()">Undo</button>
+      <button (click)="redo()">Redo</button>
+    </div>
   </div>
-  <div>
+  <div [ngStyle]="{'display': display ? 'none' : 'block'}">
     <ng-container *ngFor="let message of items">
+      <!-- {{ message }} -->
       <img [src]="message" alt="no-image">
     </ng-container>
   </div>
