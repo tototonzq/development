@@ -58,7 +58,6 @@ export class AnswerComponent implements OnInit {
   offerData: string = '';
   answerData: string = '';
   messageItems: any[] = [];
-
   mode$ = new BehaviorSubject<AnswerMode>(AnswerMode.OFFER_APPROVE);
 
   /* -------------------------------------------------------------------------- */
@@ -73,7 +72,6 @@ export class AnswerComponent implements OnInit {
   /* -------------------------------------------------------------------------- */
   /** สร้างข้อมูล Answer */
   createAnswer() {
-    console.log(this._connectedRtcService.test$.getValue());
     if (this.answerData === '') {
       // alert('กรุณากรอกข้อมูล Answer');
     }

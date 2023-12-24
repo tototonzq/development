@@ -4,6 +4,4 @@ import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class ConnectedRtcService {
-  test$ = new BehaviorSubject<any>(null);
-}
+export class ConnectedRtcService {}

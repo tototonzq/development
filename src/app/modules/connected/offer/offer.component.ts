@@ -69,7 +69,6 @@ export class OfferComponent {
   /* -------------------------------------------------------------------------- */
   /** เมื่อกดปุ่มสร้างข้อมูล Offer */
   createOffer() {
-    this._connectedRtcService.test$.next('test');
     this._peer.dc = this._peer.createDataChannel('channel');
     this._peer.dc.onmessage = (ev) => this._onChannelMessage(ev);
 
@@ -82,7 +81,6 @@ export class OfferComponent {
     this._peer.createOffer().then((offer) => {
       this._peer.setLocalDescription(offer);
       this.offerData = JSON.stringify(offer);
-      console.log(this._connectedRtcService.test$.getValue());
     });
   }
 
