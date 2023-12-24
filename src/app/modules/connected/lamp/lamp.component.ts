@@ -12,11 +12,11 @@ import {
 import { BehaviorSubject } from 'rxjs';
 
 @Component({
-  selector: 'app-lamp-child',
+  selector: 'app-lamp',
   templateUrl: './lamp.component.html',
   styleUrls: ['./lamp.component.scss'],
 })
-export class LampComponentChild implements AfterViewInit, OnInit {
+export class LampComponent implements AfterViewInit, OnInit {
   public userAgent = new BehaviorSubject<string>('');
   public platform = new BehaviorSubject<string>('');
 

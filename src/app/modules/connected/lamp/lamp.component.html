@@ -1,5 +1,5 @@
 <div id="container" class="container-lamp">
-  <div [ngStyle]="{'display': drawing ? 'none' : 'block'}">
+  <div [ngStyle]="{ display: drawing ? 'none' : 'block' }">
     <canvas id="drawingCanvas" #drawingCanvas></canvas>
     <div class="container-button">
       <button (click)="sendData()">Send Data</button>
@@ -9,10 +9,10 @@
       <button (click)="redo()">Redo</button>
     </div>
   </div>
-  <div [ngStyle]="{'display': display ? 'none' : 'block'}">
+  <div [ngStyle]="{ display: display ? 'none' : 'block' }">
     <ng-container *ngFor="let message of items">
       <!-- {{ message }} -->
-      <img [src]="message" alt="no-image">
+      <img [src]="message" alt="no-image" />
     </ng-container>
   </div>
 </div>
