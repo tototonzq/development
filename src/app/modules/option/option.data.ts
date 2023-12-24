@@ -1,4 +1,6 @@
-export const ROOT_MENU = [
+import { Menu } from 'src/app/shared/interface/menu.interface';
+
+export const ROOT_MENU: Menu[] = [
   {
     router: 'Lamp',
     path: '/offer',

@@ -2,7 +2,14 @@
   <p class="title-option">Lamp Event</p>
   <div class="menu-option">
     <ng-container *ngFor="let menu of menu">
-      <button class="menu-button" mat-raised-button (click)="navigateTo(menu.path)" color="primary">{{ menu.router }}</button>
+      <button
+        class="menu-button"
+        mat-raised-button
+        (click)="navigateTo(menu.path)"
+        color="primary"
+      >
+        {{ menu.router }}
+      </button>
     </ng-container>
   </div>
   <p class="version-option">version x.x.x</p>
