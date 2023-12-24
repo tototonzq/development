@@ -11,7 +11,6 @@
   </div>
   <div [ngStyle]="{ display: display ? 'none' : 'block' }">
     <ng-container *ngFor="let message of items">
-      <!-- {{ message }} -->
       <img [src]="message" alt="no-image" />
     </ng-container>
   </div>

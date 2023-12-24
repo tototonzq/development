@@ -1,7 +1,6 @@
 import { Component, NgZone, inject } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { OfferMode } from './offer.enum';
-import { ConnectedService } from '../connected.service';
 
 @Component({
   selector: 'app-offer',
@@ -9,7 +8,6 @@ import { ConnectedService } from '../connected.service';
   styleUrls: ['./offer.component.scss'],
 })
 export class OfferComponent {
-  private cnService = inject(ConnectedService);
   /* -------------------------------------------------------------------------- */
   /*                                 constructor                                */
   /* -------------------------------------------------------------------------- */
