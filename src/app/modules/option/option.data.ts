@@ -1,22 +1,10 @@
 export const ROOT_MENU = [
   {
     router: 'Lamp',
-    path: '/lamp',
-  },
-  {
-    router: 'Display',
-    path: '/display',
-  },
-  {
-    router: 'Offer',
     path: '/offer',
   },
   {
-    router: 'Answer',
+    router: 'Display',
     path: '/answer',
   },
-  {
-    router: 'Chat',
-    path: '/chat',
-  }
 ];
