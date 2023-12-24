@@ -92,6 +92,12 @@ export class OfferComponent {
     }
   }
 
+  onCopy() {
+    const copy = document.getElementById('offer') as HTMLInputElement;
+    copy?.select();
+    document.execCommand('copy');
+  }
+
   /** ยืนยันข้อมูล Answer */
   confirmAnswer() {
     if (this.answerData === '') {

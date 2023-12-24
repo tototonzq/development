@@ -1,10 +1,11 @@
 <div class="container-offer" *ngIf="!connected; else chatTemplate">
   <span>{{ mode$ | async }}</span>
   <ng-container *ngIf="(mode$ | async) === OfferMode.CREATE_OFFER; else Answer">
-    <textarea placeholder="wait..." [(ngModel)]="offerData"></textarea>
+    <textarea id="offer" placeholder="wait..." [(ngModel)]="offerData"></textarea>
     <div class="container-button">
       <button (click)="createOffer()">Create</button>
       <button (click)="onNext()">Next</button>
+      <button (click)="onCopy()">Copy</button>
     </div>
   </ng-container>
   <ng-template #Answer>
