@@ -1,7 +1,6 @@
 import { Component, NgZone, OnInit, inject } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { AnswerMode } from './answer.enum';
-import { ConnectedService } from '../connected.service';
 
 @Component({
   selector: 'app-answer',
@@ -9,10 +8,13 @@ import { ConnectedService } from '../connected.service';
   styleUrls: ['./answer.component.scss'],
 })
 export class AnswerComponent implements OnInit {
-  private cnService = inject(ConnectedService);
+  /* -------------------------------------------------------------------------- */
+  /*                                   Inject                                   */
+  /* -------------------------------------------------------------------------- */
 
-  connected: boolean = false;
-
+  /* -------------------------------------------------------------------------- */
+  /*                                 Constructor                                */
+  /* -------------------------------------------------------------------------- */
   constructor(private _zone: NgZone) {
     this._peer.onconnectionstatechange = () => {
       this._zone.run(() => {
@@ -31,11 +33,18 @@ export class AnswerComponent implements OnInit {
     };
   }
 
+  /* -------------------------------------------------------------------------- */
+  /*                                 Life Circle                                */
+  /* -------------------------------------------------------------------------- */
   ngOnInit(): void {}
 
+  /* -------------------------------------------------------------------------- */
+  /*                                  Variables                                 */
+  /* -------------------------------------------------------------------------- */
   private _peer: RTCPeerConnection & { dc?: RTCDataChannel } =
     new RTCPeerConnection();
 
+  public connected: boolean = false;
   public get channel() {
     return this._peer.dc;
   }
@@ -43,8 +52,19 @@ export class AnswerComponent implements OnInit {
   offerData: string = '';
   answerData: string = '';
   messageItems: any[] = [];
+
   mode$ = new BehaviorSubject<AnswerMode>(AnswerMode.OFFER_APPROVE);
 
+  /* -------------------------------------------------------------------------- */
+  /*                                     Get                                    */
+  /* -------------------------------------------------------------------------- */
+  get AnswerMode(): typeof AnswerMode {
+    return AnswerMode;
+  }
+
+  /* -------------------------------------------------------------------------- */
+  /*                                  Functions                                 */
+  /* -------------------------------------------------------------------------- */
   /** สร้างข้อมูล Answer */
   createAnswer() {
     if (this.answerData === '') {

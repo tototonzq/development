@@ -1,7 +1,12 @@
 <div class="container-offer" *ngIf="!connected; else chatTemplate">
   <span>{{ mode$ | async }}</span>
   <textarea placeholder="wait..." [(ngModel)]="offerData"></textarea>
-  <button (click)="createAnswer()">CLICK</button>
+  <button
+    *ngIf="(mode$ | async) === AnswerMode.OFFER_APPROVE"
+    (click)="createAnswer()"
+  >
+    Next
+  </button>
 </div>
 
 <ng-template #chatTemplate>
