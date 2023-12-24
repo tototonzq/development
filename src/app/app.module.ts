@@ -4,12 +4,9 @@ import { root } from './app.routing';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { OfferComponent } from './modules/connected/offer/offer.component';
-import { AnswerComponent } from './modules/connected/answer/answer.component';
-import { LampComponent } from './modules/connected/lamp/lamp.component';
 
 @NgModule({
-  declarations: [AppComponent, LampComponent, OfferComponent, AnswerComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     RouterModule.forRoot(root),

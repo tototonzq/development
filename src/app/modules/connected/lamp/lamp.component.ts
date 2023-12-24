@@ -10,11 +10,14 @@ import {
   ViewChild,
 } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @Component({
+  standalone: true,
   selector: 'app-lamp',
   templateUrl: './lamp.component.html',
   styleUrls: ['./lamp.component.scss'],
+  imports: [SharedModule],
 })
 export class LampComponent implements AfterViewInit, OnInit {
   public userAgent = new BehaviorSubject<string>('');

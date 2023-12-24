@@ -1,13 +1,23 @@
 import { Component, NgZone, inject } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { OfferMode } from './offer.enum';
+import { ConnectedRtcService } from '../connected-rtc.service';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { LampComponent } from '../lamp/lamp.component';
 
 @Component({
+  standalone: true,
   selector: 'app-offer',
   templateUrl: './offer.component.html',
   styleUrls: ['./offer.component.scss'],
+  imports: [SharedModule, LampComponent],
 })
 export class OfferComponent {
+  /* -------------------------------------------------------------------------- */
+  /*                                   Inject                                   */
+  /* -------------------------------------------------------------------------- */
+  _connectedRtcService = inject(ConnectedRtcService);
+
   /* -------------------------------------------------------------------------- */
   /*                                 constructor                                */
   /* -------------------------------------------------------------------------- */
@@ -59,6 +69,7 @@ export class OfferComponent {
   /* -------------------------------------------------------------------------- */
   /** เมื่อกดปุ่มสร้างข้อมูล Offer */
   createOffer() {
+    this._connectedRtcService.test$.next('test');
     this._peer.dc = this._peer.createDataChannel('channel');
     this._peer.dc.onmessage = (ev) => this._onChannelMessage(ev);
 
@@ -71,6 +82,7 @@ export class OfferComponent {
     this._peer.createOffer().then((offer) => {
       this._peer.setLocalDescription(offer);
       this.offerData = JSON.stringify(offer);
+      console.log(this._connectedRtcService.test$.getValue());
     });
   }
 
@@ -95,10 +107,6 @@ export class OfferComponent {
     this._zone.run(() => {
       console.log(ev.data);
       this.messageItems.push(ev.data);
-      // this.messageItems.push({
-      //   isMe: false,
-      //   message: ev.data,
-      // });
     });
   }
 }

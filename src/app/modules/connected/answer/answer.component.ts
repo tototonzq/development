@@ -1,16 +1,22 @@
 import { Component, NgZone, OnInit, inject } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { AnswerMode } from './answer.enum';
+import { ConnectedRtcService } from '../connected-rtc.service';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { LampComponent } from '../lamp/lamp.component';
 
 @Component({
+  standalone: true,
   selector: 'app-answer',
   templateUrl: './answer.component.html',
   styleUrls: ['./answer.component.scss'],
+  imports: [SharedModule, LampComponent],
 })
 export class AnswerComponent implements OnInit {
   /* -------------------------------------------------------------------------- */
   /*                                   Inject                                   */
   /* -------------------------------------------------------------------------- */
+  _connectedRtcService = inject(ConnectedRtcService);
 
   /* -------------------------------------------------------------------------- */
   /*                                 Constructor                                */
@@ -67,6 +73,7 @@ export class AnswerComponent implements OnInit {
   /* -------------------------------------------------------------------------- */
   /** สร้างข้อมูล Answer */
   createAnswer() {
+    console.log(this._connectedRtcService.test$.getValue());
     if (this.answerData === '') {
       // alert('กรุณากรอกข้อมูล Answer');
     }
