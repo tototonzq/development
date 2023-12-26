@@ -23,24 +23,8 @@ export class LampComponent implements AfterViewInit, OnInit {
   public userAgent = new BehaviorSubject<string>('');
   public platform = new BehaviorSubject<string>('');
 
-  // data = [
-  //   {
-  //     message:
-  //       'https://www.central.co.th/e-shopping/wp-content/uploads/2020/12/CUTE-KITTY.jpg',
-  //   },
-  //   {
-  //     message:
-  //       'https://www.central.co.th/e-shopping/wp-content/uploads/2020/12/CUTE-KITTY.jpg',
-  //   },
-  //   {
-  //     message:
-  //       'https://www.central.co.th/e-shopping/wp-content/uploads/2020/12/CUTE-KITTY.jpg',
-  //   },
-  //   {
-  //     message:
-  //       'https://www.central.co.th/e-shopping/wp-content/uploads/2020/12/CUTE-KITTY.jpg',
-  //   },
-  // ];
+  public strokeColor: string = '#ff0000'; // Default stroke color
+  public fillColor: string = '#FFFFFF'; // Default fill color
 
   @Input('channel') channel?: RTCDataChannel;
   @Input('items') items: any[] = [];
@@ -98,6 +82,7 @@ export class LampComponent implements AfterViewInit, OnInit {
   private setupCanvas(): void {
     // Get the container element
     const container = this.el.nativeElement.parentElement;
+    this.context.strokeStyle = this.strokeColor;
 
     // Set the canvas width and height to match the container
     this.renderer.setStyle(container, 'position', 'relative');
@@ -137,6 +122,8 @@ export class LampComponent implements AfterViewInit, OnInit {
     this.isDrawing = true;
 
     if (!this.isDrawing) return;
+
+    this.context.strokeStyle = this.strokeColor;
 
     const rect = this.canvas.nativeElement.getBoundingClientRect();
     const x = touch.clientX - rect.left;
